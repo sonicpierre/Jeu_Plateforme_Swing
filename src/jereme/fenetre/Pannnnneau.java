@@ -41,7 +41,6 @@ public class Pannnnneau extends JPanel {
 	public int compteurPlateformes = 0;
 
 	public Pannnnneau() {
-		keyController = new KeyController();
 		rectangles = new ArrayList<MonRectangle>();
 		images = new ArrayList<File>();
 		images.add(new File("personnage/megamanD1.gif"));
