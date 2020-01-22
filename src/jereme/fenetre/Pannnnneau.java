@@ -1,4 +1,4 @@
-package jereme;
+package jereme.fenetre;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 
 import Physique.Collision;
 import Physique.CollisionPlatforme;
+import jereme.MonRectangle;
+import jereme.Text;
 
 @SuppressWarnings("serial")
 public class Pannnnneau extends JPanel implements KeyListener {

@@ -1,4 +1,4 @@
-package jereme;
+package jereme.fenetre;
 
 import java.awt.Dimension;
 
