@@ -5,7 +5,12 @@ import java.awt.event.KeyEvent;
 
 public class KeyController extends KeyAdapter{
 
+	private static KeyController instance;
 	boolean isZPressed = false;
+	
+	
+	private KeyController() {
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -24,5 +29,11 @@ public class KeyController extends KeyAdapter{
 	
 	public boolean getZState() {
 		return isZPressed;
+	}
+	
+	public static KeyController getInstance() {
+		if (instance == null)
+			instance = new KeyController();
+		return instance;
 	}
 }

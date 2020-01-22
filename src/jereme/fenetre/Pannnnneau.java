@@ -37,8 +37,6 @@ public class Pannnnneau extends JPanel {
 	int xImage = 10;		// x et y de l'image du perso
 	int yImage = 800;
 	Collision coco = new CollisionPlatforme();
-	
-	private KeyController keyController;
 
 	public int compteurPlateformes = 0;
 
@@ -55,7 +53,7 @@ public class Pannnnneau extends JPanel {
 		images.add(new File("personnage/megamanD7.gif"));
 		images.add(new File("personnage/megamanD8.gif"));
 		images.add(new File("personnage/megamanD9.gif"));
-		addKeyListener(keyController);
+		addKeyListener(KeyController.getInstance());
 		
 		addMouseListener(new MouseAdapter() { // Ajout d'un event pour les clics
 
