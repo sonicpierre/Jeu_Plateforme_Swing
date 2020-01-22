@@ -3,8 +3,6 @@ package jereme.fenetre;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -20,9 +18,10 @@ import Physique.Collision;
 import Physique.CollisionPlatforme;
 import jereme.MonRectangle;
 import jereme.Text;
+import jereme.control.KeyController;
 
 @SuppressWarnings("serial")
-public class Pannnnneau extends JPanel implements KeyListener {
+public class Pannnnneau extends JPanel {
 
 	private List<MonRectangle> rectangles;
 	private List<File> images;
@@ -38,11 +37,13 @@ public class Pannnnneau extends JPanel implements KeyListener {
 	int xImage = 10;		// x et y de l'image du perso
 	int yImage = 800;
 	Collision coco = new CollisionPlatforme();
+	
+	private KeyController keyController;
 
 	public int compteurPlateformes = 0;
 
 	public Pannnnneau() {
-		
+		keyController = new KeyController();
 		rectangles = new ArrayList<MonRectangle>();
 		images = new ArrayList<File>();
 		images.add(new File("personnage/megamanD1.gif"));
@@ -54,6 +55,8 @@ public class Pannnnneau extends JPanel implements KeyListener {
 		images.add(new File("personnage/megamanD7.gif"));
 		images.add(new File("personnage/megamanD8.gif"));
 		images.add(new File("personnage/megamanD9.gif"));
+		addKeyListener(keyController);
+		
 		addMouseListener(new MouseAdapter() { // Ajout d'un event pour les clics
 
 			public void mouseClicked(MouseEvent e) {
@@ -72,9 +75,10 @@ public class Pannnnneau extends JPanel implements KeyListener {
 		});
 
 	}
-
+/*
 	public void keyPressed(KeyEvent e) {
 
+		/*
 		if (this.compteurPlateformes >= 5) {
 
 			if (e.getKeyChar() == 'z') {
@@ -116,7 +120,7 @@ public class Pannnnneau extends JPanel implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
-
+*/
 	public void paintComponent(Graphics g, int xImage, int yImage, File image) {
 		try {
 			Image img = ImageIO.read(image);
