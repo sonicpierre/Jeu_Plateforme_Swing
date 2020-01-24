@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import jereme.Joueur.guerrier;
+import jereme.Joueur.personnage;
 import jereme.control.KeyController;
 import jereme.control.MouseController;
 import jereme.fenetre.Pannnnneau;
-import jereme.position.positionJoueur;
+
 
 public class Game extends Thread {
 	
@@ -25,8 +27,8 @@ public class Game extends Thread {
 	 */
 	static List <MonRectangle> plateformesListe = new ArrayList<MonRectangle>();					//Permet d'avoir les plateformes dans un tableau de type liste
 	
-	static positionJoueur position;
 	
+	static personnage Clovis = new guerrier();
 	
 	private Game() {
 		super("Mon Thread de jeu");
@@ -39,7 +41,6 @@ public class Game extends Thread {
 	@Override
 	public void run() {
 		super.run();
-		position = new positionJoueur(0,0);
 		
 		// Début de jeu
 		
@@ -54,18 +55,20 @@ public class Game extends Thread {
 				Pannnnneau.getInstance().repaint();
 			}
 			if(KeyController.getInstance().getAnyState()) {						//On regarde et on repaint seulement si une touche a été appuyé
+				
 				if(KeyController.getInstance().getState()[KeyController.KEY_Z]) {
-					position.mouvementHautPerso();
+					Clovis.marchehaut();
 				}
-				if(KeyController.getInstance().getState()[1]) {
-					position.mouvementGauchePerso();
+				if(KeyController.getInstance().getState()[KeyController.KEY_Q]) {
+					Clovis.marchegauche();
 				}
-				if(KeyController.getInstance().getState()[2]) {
-					position.mouvementDroitePerso();
+				if(KeyController.getInstance().getState()[KeyController.KEY_D]) {
+					Clovis.marchedroite();
 				}
-				if(KeyController.getInstance().getState()[3]) {
-					position.mouvementBasPerso();
+				if(KeyController.getInstance().getState()[KeyController.KEY_S]) {
+					Clovis.marchebas();
 				}
+				Pannnnneau.getInstance().repaint();
 			}
 			
 			try {
@@ -93,7 +96,7 @@ public class Game extends Thread {
 	}
 	
 	public static MonOvale positionPerso() {
-		return new MonOvale(position.getxPerso(), position.getyPerso(), 100, 100, new Color(50,100,200));
+		return new MonOvale(Clovis.posx,Clovis.posy, 100, 100, new Color(50,100,200));
 	}
 	
 }

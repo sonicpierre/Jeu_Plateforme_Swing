@@ -6,11 +6,12 @@ import java.awt.event.KeyEvent;
 public class KeyController extends KeyAdapter {
 
 	public static short KEY_Z = 0;
-
+	public static short KEY_Q = 1;
+	public static short KEY_S = 2;
+	public static short KEY_D = 3;
+	
 	private static KeyController instance;
 
-	// boolean isPressed[] = {false,false,false,false}; //Correspond à dans l'ordre
-	// z q d //Chois de le mettre "statique" comme on connait le nombre de touches
 
 	boolean[] isPressed = new boolean[4]; // C'est plus propre pour initialiser un tableau de bool à false
 
@@ -36,41 +37,39 @@ public class KeyController extends KeyAdapter {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		super.keyPressed(e);
-		// Tu peux utiliser un switch :
-		switch (e.getKeyCode()) {
-		case KeyEvent.VK_Z:
-			// ce qu'il y a à faire.
-			break;
-		}
-		if (e.getKeyCode() == KeyEvent.VK_Z)
+		inanythingPressed = true;
+		
+		if(e.getKeyCode() == KeyEvent.VK_Z)
 			isPressed[KEY_Z] = true;
-		inanythingPressed = true;
-		if (e.getKeyCode() == KeyEvent.VK_Q)
-			isPressed[1] = true;
-		inanythingPressed = true;
+		
+		if(e.getKeyCode() == KeyEvent.VK_Q)
+			isPressed[KEY_Q] = true;
+
 		if (e.getKeyCode() == KeyEvent.VK_D)
-			isPressed[2] = true;
-		inanythingPressed = true;
+			isPressed[KEY_D] = true;
+
 		if (e.getKeyCode() == KeyEvent.VK_S)
-			isPressed[3] = true;
-		inanythingPressed = true;
+			isPressed[KEY_S] = true;
+		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		super.keyReleased(e);
+		inanythingPressed = false;
+		
 		if (e.getKeyCode() == KeyEvent.VK_Z)
 			isPressed[KEY_Z] = false;
-		inanythingPressed = false;
+		
 		if (e.getKeyCode() == KeyEvent.VK_Q)
-			isPressed[1] = false;
-		inanythingPressed = false;
+			isPressed[KEY_Q] = false;
+		
 		if (e.getKeyCode() == KeyEvent.VK_D)
-			isPressed[2] = false;
-		inanythingPressed = false;
+			isPressed[KEY_D] = false;
+		
 		if (e.getKeyCode() == KeyEvent.VK_S)
-			isPressed[3] = false;
-		inanythingPressed = false;
+			isPressed[KEY_S] = false;
+		
 	}
 
 	public boolean[] getState() {
