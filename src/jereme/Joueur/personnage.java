@@ -2,8 +2,9 @@ package jereme.Joueur;
 
 import jereme.Objet.Inventaire;
 import jereme.deplacement.*;
+import jereme.fenetre.IRenderable;
 
-public abstract class personnage {
+public abstract class personnage implements IRenderable {
 	protected int PVMax;			//Nous permettra d'avoir des persos avec des PV et PM différents
 	protected int PMMax;
 	protected int PV;
