@@ -42,8 +42,24 @@ public class Pannnnneau extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
+		
+		/* C'est pas mal ce que tu fais ici.
+		 * Mais je te propose de changer un peu ca.
+		 * On le fera ensembles si tu veux.
+		 * 
+		 * En gros on va faire un objet Renderer qui étend de Canvas.
+		 * On déssinera tout dessus
+		 * et ici on viendra afficher le Renderer uniquement.
+		 * 
+		 * Ce qu'on peut faire d'encore mieux, c'est de faire que le renderer soit un processus à part (comme ca tu peux controller les fps)
+		 * et en plus la fenetre ira juste chercher une image faite par le renderer et devra l'afficher.
+		 * 
+		 * Mais tkt on y fera ensemble, c'est juste pour te donner un avant gout
+		 *
+		 */
+		
 		g.drawString("Coucou !!!!", 500, 500);
-		Game.positionPerso().draw(g);
+		Game.positionPerso().draw(g); // Bonne utilisation du singleton :D
 		for (MonRectangle plateformes : Game.getPlateformes()) {
 			plateformes.draw(g);
 		}
