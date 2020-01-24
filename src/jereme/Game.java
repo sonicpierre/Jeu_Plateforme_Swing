@@ -15,6 +15,14 @@ public class Game extends Thread {
 	
 	private boolean isRunning;
 	
+	
+	/*
+	 * Pourquoi utiliser du static quand tu as un singleton ? 
+	 * 
+	 * Le singleton permet un accès à une instance unique depuis n'importe où.
+	 * 
+	 * Enleve ses statics inutiles et pas beaux
+	 */
 	static List <MonRectangle> plateformesListe = new ArrayList<MonRectangle>();					//Permet d'avoir les plateformes dans un tableau de type liste
 	
 	static positionJoueur position;
@@ -46,7 +54,7 @@ public class Game extends Thread {
 				Pannnnneau.getInstance().repaint();
 			}
 			if(KeyController.getInstance().getAnyState()) {						//On regarde et on repaint seulement si une touche a été appuyé
-				if(KeyController.getInstance().getState()[0]) {
+				if(KeyController.getInstance().getState()[KeyController.KEY_Z]) {
 					position.mouvementHautPerso();
 				}
 				if(KeyController.getInstance().getState()[1]) {
@@ -58,11 +66,10 @@ public class Game extends Thread {
 				if(KeyController.getInstance().getState()[3]) {
 					position.mouvementBasPerso();
 				}
-				Pannnnneau.getInstance().repaint();
 			}
 			
 			try {
-				Thread.sleep(20);						//Permet de déterminer le temps entre chaque regard sur le moteur
+				Thread.sleep(10);						//Permet de déterminer le temps entre chaque regard sur le moteur
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
