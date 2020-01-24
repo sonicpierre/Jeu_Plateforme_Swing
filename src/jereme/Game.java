@@ -24,11 +24,13 @@ public class Game extends Thread {
 	 * Le singleton permet un accès à une instance unique depuis n'importe où.
 	 * 
 	 * Enleve ses statics inutiles et pas beaux
+	 * 
 	 */
-	static List <MonRectangle> plateformesListe = new ArrayList<MonRectangle>();					//Permet d'avoir les plateformes dans un tableau de type liste
+	
+	List <MonRectangle> plateformesListe = new ArrayList<MonRectangle>();					//Permet d'avoir les plateformes dans un tableau de type liste
 	
 	
-	static personnage Clovis = new guerrier();
+	personnage Clovis = new guerrier();
 	
 	private Game() {
 		super("Mon Thread de jeu");
@@ -90,13 +92,12 @@ public class Game extends Thread {
 	}
 	
 	
-	
 	public static List <MonRectangle> getPlateformes(){
-		return plateformesListe;
+		return Game.getInstance().plateformesListe;
 	}
 	
 	public static MonOvale positionPerso() {
-		return new MonOvale(Clovis.posx,Clovis.posy, 100, 100, new Color(50,100,200));
+		return new MonOvale(Game.getInstance().Clovis.posx,Game.getInstance().Clovis.posy, 100, 100, new Color(50,100,200));
 	}
 	
 }
