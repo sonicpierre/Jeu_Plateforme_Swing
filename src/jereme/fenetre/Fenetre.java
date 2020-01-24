@@ -9,7 +9,7 @@ public class Fenetre extends JFrame {
 
 	public Fenetre() {
 		setSize(new Dimension(1000, 1000));
-		Pannnnneau paneau = new Pannnnneau();
+		Pannnnneau paneau = Pannnnneau.getInstance();
 		paneau.setFocusable(true);
 		getContentPane().add(paneau);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
