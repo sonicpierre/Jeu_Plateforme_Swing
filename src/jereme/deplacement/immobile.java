@@ -20,11 +20,4 @@ public class immobile implements deplacement{
 		return 0;
 	}
 
-	@Override
-	public int deplacebas(int y) {
-		System.out.println("Je suis immobile");
-		return 0;
-	}
-
-
 }

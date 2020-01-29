@@ -11,6 +11,8 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class Renderer extends Canvas {
 	
+	//Variable pas directement utile mais pour relire le code pratique 
+	
 	public static final int TOP_LAYER = 3;
 	public static final int BOT_LAYER = 0;
 	
@@ -28,6 +30,8 @@ public class Renderer extends Canvas {
 
 	private static Renderer instance;
 
+	//BufferedImage représente une image et permet de par relire le fichier à chaque fois
+	
 	private BufferedImage[] layers; // Chaque image représente un calque.
 	private BufferedImage image;
 	
@@ -42,23 +46,33 @@ public class Renderer extends Canvas {
 	}
 
 	public void render() {
+		
+		//On peint le fond qui correspond à image 
+		
 		Graphics g = image.getGraphics();
 		g.setColor(backgroundColor);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 
+		//On initialise les layers comme transparents
+		
 		for (BufferedImage layer : layers) {
 			Graphics2D g2d = (Graphics2D) layer.getGraphics();
 			g2d.setBackground(transparentColor);
 			g2d.clearRect(0, 0, WIDTH, HEIGHT);
 		}
-
+		
+		//On dessine sur le layer
+		
 		for (IRenderable e : elements) {
-			if (e.getLayer() > TOP_LAYER) continue;
-			e.draw(layers[e.getLayer()].getGraphics());
+			if (e.getLayer() > TOP_LAYER) continue;				//Penser négation si on n'ai pas > faire...
+			e.draw(layers[e.getLayer()].getGraphics());			//Appelle la fonction définie dans guerrier			getGrphic() parce qu'il prend en paramètre des graphiques
 		}
+		
+		//On dessine sur l'image
 		
 		for (BufferedImage layer : layers)
 			g.drawImage(layer, 0, 0, null);
+		
 	}
 
 	public static Renderer getInstance() {
@@ -69,7 +83,7 @@ public class Renderer extends Canvas {
 
 	@Override
 	public void paint(Graphics g) {
-		//super.paint(g);
+		super.paint(g);
 		render();
 		g.drawImage(image, 0, 0, null);
 	}
@@ -81,5 +95,4 @@ public class Renderer extends Canvas {
 	public void remove(IRenderable renderable) {
 		elements.remove(renderable);
 	}
-
 }

@@ -20,11 +20,4 @@ public class courir implements deplacement{
 		return y;
 	}
 
-	@Override
-	public int deplacebas(int y) {
-		y+=5;
-		return y;
-	}
-
-
 }

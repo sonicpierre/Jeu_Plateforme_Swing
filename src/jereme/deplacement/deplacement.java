@@ -5,5 +5,4 @@ public interface deplacement {
 	public int deplacedroite(int x);
 	public int deplacegauche(int x);
 	public int deplacehaut(int y);
-	public int deplacebas(int y);
 }

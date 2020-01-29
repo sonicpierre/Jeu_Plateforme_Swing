@@ -20,11 +20,5 @@ public class marcher implements deplacement{
 		return y;
 	}
 
-	@Override
-	public int deplacebas(int y) {
-		y++;
-		return y;
-	}
-
 
 }

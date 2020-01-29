@@ -16,7 +16,7 @@ public class guerrier extends personnage{
 		this.PM = 100;
 		this.deplace = new immobile();
 		this.sac = new Inventaire(10,3,3);
-		Renderer.getInstance().add(this);
+		Renderer.getInstance().add(this);					//On ajoute l'instance Irenderer
 		}
 	//Permettra à un feu de camps de restaurer toute sa vie
 	
@@ -34,4 +34,7 @@ public class guerrier extends personnage{
 	public int getLayer() {
 		return Renderer.CHARACTER_LAYER;
 	}
+	
+	//On implément la gravite dans guerrier parce qu'on peut faire varier la gravité en fonction du perso
+	
 }

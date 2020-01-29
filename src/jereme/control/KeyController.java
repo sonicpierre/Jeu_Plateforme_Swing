@@ -29,7 +29,6 @@ public class KeyController extends KeyAdapter {
 	 * 
 	 */
 
-	boolean inanythingPressed = false; // Pas forcément utile tu peux le remplacer par un "ou" entre tous les booleans du tableau.
 
 	private KeyController() {
 	}
@@ -37,7 +36,7 @@ public class KeyController extends KeyAdapter {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		super.keyPressed(e);
-		inanythingPressed = true;
+
 		
 		if(e.getKeyCode() == KeyEvent.VK_Z)
 			isPressed[KEY_Z] = true;
@@ -56,7 +55,7 @@ public class KeyController extends KeyAdapter {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		super.keyReleased(e);
-		inanythingPressed = false;
+
 		
 		if (e.getKeyCode() == KeyEvent.VK_Z)
 			isPressed[KEY_Z] = false;
@@ -74,10 +73,6 @@ public class KeyController extends KeyAdapter {
 
 	public boolean[] getState() {
 		return isPressed;
-	}
-
-	public boolean getAnyState() {
-		return inanythingPressed;
 	}
 
 	public static KeyController getInstance() {

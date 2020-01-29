@@ -18,7 +18,7 @@ public class Pannnnneau extends JPanel {
 	
 	@Override
 	protected void paintComponent(Graphics g) {
-		//super.paintComponent(g);
+		super.paintComponent(g);
 		Renderer.getInstance().paint(g);
 	}
 	

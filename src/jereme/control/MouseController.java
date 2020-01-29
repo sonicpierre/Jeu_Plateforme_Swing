@@ -15,7 +15,7 @@ public class MouseController extends MouseAdapter{
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		super.mouseClicked(e);
+		super.mousePressed(e);
 		isMousePressed = true;
 		xSourisClicked = e.getX();
 		ySourisClicked = e.getY();
