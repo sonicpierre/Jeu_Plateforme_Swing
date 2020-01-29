@@ -24,11 +24,9 @@ public class CarteNiveau1 implements CreerCarte{
 		listeDePlateformes.add(definirSol());
 		listeDePlateformes.add(definirMurDroite());
 		listeDePlateformes.add(definirMurGauche());				
-		//listeDePlateformes.add(definirPlateformeFinale());
-		listeDePlateformes.add(new Plateforme(150, 740, 150, 20, new Color(0, 100, 200)));
-		listeDePlateformes.add(new Plateforme(250, 600, 150, 20, new Color(0, 100, 200)));
-		//listeDePlateformes.add(new Plateforme(200, 300, 150, 20, new Color(0, 100, 200)));
-		//listeDePlateformes.add(new Plateforme(800, 750, 150, 20, new Color(0, 100, 200)));
+		listeDePlateformes.add(definirPlateformeFinale());
+		listeDePlateformes.add(new Plateforme(630, 600, 150, 20, new Color(0, 100, 200)));
+		listeDePlateformes.add(new Plateforme(250, 300, 150, 20, new Color(0, 100, 200)));
 	}
 	public int getLargeurMurDroit() {
 		return largeurMurDroit;

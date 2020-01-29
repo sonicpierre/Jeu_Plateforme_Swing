@@ -39,8 +39,7 @@ public class Game extends Thread {
 	CarteNiveau1 cartes1 = new CarteNiveau1(EPAISSEUR_MUR_GAUCHE, EPAISSEUR_MUR_DROIT, 150, 0.8);
 	int POSITION_SOL = 0;
 	double DUREE_SAUT = 0.7;
-	int VITESSE_LATERALE =1;
-	
+	int VITESSE_LATERALE = 1;
 	
 	private Game() {
 		super("Mon Thread de jeu");
@@ -68,10 +67,10 @@ public class Game extends Thread {
 
 			// Boucle
 
-			if (MouseController.getmouseInstance().getMouseState()) { // A chaque fois qu'on appuie sur la sourie on
+			if (MouseController.getmouseInstance().getMouseState()){ // A chaque fois qu'on appuie sur la sourie on
 																		// ajoute une plateforme
 				if (plateformeExistePas(plateformesListe)) {
-					plateformesListe.add(new Plateforme(MouseController.getmouseInstance().getSourisX(),
+					maListePourCollision.add(new Plateforme(MouseController.getmouseInstance().getSourisX(),
 							MouseController.getmouseInstance().getSourisY(), 50, 50, new Color(50, 50, 50)));
 				}
 			}
@@ -87,10 +86,10 @@ public class Game extends Thread {
 			}
 			
 			if (KeyController.getInstance().getState()[KeyController.KEY_Q] && (Clovis.posx - VITESSE_LATERALE > EPAISSEUR_MUR_GAUCHE)){
-				Clovis.posx = CollisionPlatforme.getInstance().ColisionGauche(maListePourCollision, Clovis, TaillePerso, 1, TaillePerso);
+				Clovis.posx = CollisionPlatforme.getInstance().ColisionGauche(maListePourCollision, Clovis, TaillePerso, VITESSE_LATERALE, TaillePerso);
 			}
-			if (KeyController.getInstance().getState()[KeyController.KEY_D] && (Clovis.posx + VITESSE_LATERALE < 1000 - EPAISSEUR_MUR_DROIT)) {
-				Clovis.posx = CollisionPlatforme.getInstance().ColisionDroite(maListePourCollision, Clovis, TaillePerso, 1, TaillePerso);
+			if (KeyController.getInstance().getState()[KeyController.KEY_D] && (Clovis.posx + TaillePerso + VITESSE_LATERALE < 1000 - EPAISSEUR_MUR_DROIT)) {
+				Clovis.posx = CollisionPlatforme.getInstance().ColisionDroite(maListePourCollision, Clovis, TaillePerso, VITESSE_LATERALE, TaillePerso);
 			}
 			
 			if ((KeyController.getInstance().getState()[KeyController.KEY_Z]) && !Clovis.isSautEnCour() && !Clovis.isEnLaire()) {

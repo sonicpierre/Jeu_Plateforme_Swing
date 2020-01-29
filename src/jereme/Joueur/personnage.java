@@ -13,7 +13,7 @@ public class personnage extends Physic implements IRenderable {
 	protected int PM;
 
 	deplacement deplace = new marcher(); // Nous permettra de courrir et marcher dans différentes directions
-	public int posx = 0; // On place notre perso en 0,0 au début
+	public int posx = 450; // On place notre perso en 0,0 au début
 	public int posy = 0;
 
 	private boolean EnLaire = true;
